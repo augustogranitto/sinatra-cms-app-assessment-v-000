@@ -1,0 +1,37 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+<% if !logged_in? %>
+  <% redirect '/login' %>
+<%end%>
+<% if @country.user != current_user %>
+  <% redirect "/countries/#{@country.id}" %>
+<%end%>
+<h1>Update country</h1>
+<form action="/countries/<%=@country.id%>" method="POST">
+  <label>Name:</label>
+
+  <br></br>
+
+  <input type="text" name="country[name]" id="country_name" value="<%=@country.name%>">
+
+  <br></br>
+
+  <label>Choose an existing sight:</label>
+
+  <br></br>
+
+  <%Sight.all.each do |sight|%>
+    <input type="checkbox" name="country[sight_ids][]" id="sight_<%=sight.id%>" value="<%=sight.id%>"<%= 'checked' if @country.sights.include?(sights) %>><%=sight.name%></input>
+  <%end%>
+
+  <br></br>
+
+    <label>and/or, create a new sight:</label>
+    <br></br>
+    <label>name:</label>
+      <input  type="text" name="sight[name]" id="new_sight"></input>
+    <br></br>
+
+  <input type="submit" value="Update Country">
+</form>

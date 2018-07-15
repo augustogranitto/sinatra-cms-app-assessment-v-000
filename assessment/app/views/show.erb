@@ -1,0 +1,18 @@
+<% if !logged_in? %>
+	<% redirect '/login' %>
+<%end%>
+<h1><%=@country.name%></h1>
+<a href="/country">Country</a>
+<% if @country.user == current_user %>
+	<a href="/countries/<%=@country.id%>/edit">Edit Country</a>
+	<form action="/countries/<%=@country.id%>" method="POST">
+		<input type="hidden" name="_method" value="delete">
+		<input type="submit" value="Delete Country">
+	</form>
+<% end %>
+<h4>Sights:</h4>
+<ul>
+  <%@country.sights.each do |sight|%>
+  <li><%=sight.name%></li>
+  <%end%>
+</ul>
