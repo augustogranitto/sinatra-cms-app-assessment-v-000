@@ -1,0 +1,14 @@
+<% if !logged_in? %>
+	<% redirect '/login' %>
+<%end%>
+<h1>List of countries</h1>
+<% if logged_in? %>
+	<h2>Welcome, <%= current_user.username %>! <a href="/logout">Logout</a></h2>
+	<h3>Select a country to view its sights or add a <a href="/countries/new">new country</a>.</h3>
+	<h3>All countries:</h3>
+	<ul>
+  		<%@countries.each do |country|%>
+  		<li><a href="/countries/<%=country.id%>"><%=country.name%></a></li>
+  		<%end%>
+	</ul>
+<%end%>

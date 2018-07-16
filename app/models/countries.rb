@@ -1,4 +1,4 @@
-class Country < ActiveRecord::Base
+class Countries < ActiveRecord::Base
     belongs_to :user
     has_many :sights
 end
