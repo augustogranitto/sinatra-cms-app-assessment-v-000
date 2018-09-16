@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   get "/login" do
-    erb :"users/login"
+    erb :"/login"
   end
 
   post "/login" do
