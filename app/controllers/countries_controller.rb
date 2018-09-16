@@ -23,6 +23,12 @@ class CountriesController < ApplicationController
         end
       end
 
+      get '/countries/:id/edit' do 
+        @country = Country.find(params[:id])
+        erb :'/destinations/edit'
+      end 
+        
+      
       delete '/sights/:id' do
         @sight = sight.find(params[:id])
         if current_user = @sight.user
