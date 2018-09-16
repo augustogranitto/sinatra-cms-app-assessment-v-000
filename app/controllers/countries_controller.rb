@@ -3,7 +3,7 @@ class CountriesController < ApplicationController
 
       get "/countries" do
         @countries = Country.all
-        erb :countries
+        erb :"countries/index"
       end
 
       get "/countries/new" do
