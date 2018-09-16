@@ -6,5 +6,5 @@ require './config/environment'
 
 use Rack::MethodOverride
 run ApplicationController
-run UsersController
+use UsersController
 run CountriesController
