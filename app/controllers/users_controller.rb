@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   get "/login" do
-    binding.pry
     erb :"users/login"
   end
 
