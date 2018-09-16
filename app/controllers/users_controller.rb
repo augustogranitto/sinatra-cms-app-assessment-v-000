@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   get "/login" do
     binding.pry
-    erb :users/"login"
+    erb :"users/login"
   end
 
   post "/login" do
